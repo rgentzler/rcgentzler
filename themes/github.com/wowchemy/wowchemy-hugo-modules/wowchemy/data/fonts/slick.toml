@@ -1,0 +1,11 @@
+# Font style metadata
+name = "Slick"
+
+# Optional Google font URL
+google_fonts = "DM+Mono:400,700|Merriweather:400,700|Inconsolata"
+
+# Font families
+heading_font = "Inconsolata"
+body_font = "Merriweather"
+nav_font = "Inconsolata"
+mono_font = "DM Mono"

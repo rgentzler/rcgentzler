@@ -1,0 +1,25 @@
+# Theme metadata
+name = "Earth"
+
+# Is theme light or dark?
+is_light = true
+
+# Primary
+primary = "#707070"
+
+# Menu
+menu_primary = "#318DC2"
+menu_text = "#F4D35E"
+menu_text_active = "#F4D35E"
+menu_title = "#F4D35E"
+
+# Links
+link = "#BB342F"
+link_hover = "#000"
+link_decoration = "underline"
+
+# Home sections
+home_section_odd = "#f9f7f6"
+home_section_even = "#ffffff"
+
+font = "rose"

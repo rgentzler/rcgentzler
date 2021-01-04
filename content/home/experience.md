@@ -22,24 +22,32 @@ date_format: Jan 2006
 #   Leave `date_end` empty if it's your current employer.
 #   Begin multi-line descriptions with YAML's `|2-` multi-line prefix.
 experience:
-  - title: CEO
-    company: GenCoin
-    company_url: ''
-    location: California
-    date_start: '2017-01-01'
+  - title: Research Director
+    company: Oklahoma Policy Institute
+    company_url: 'https://www.okpolicy.org'
+    location: Oklahoma
+    date_start: '2021-01-01'
     date_end: ''
     description: |2-
         Responsibilities include:
         
-        * Analysing
-        * Modelling
-        * Deploying
+        * Identifying and prioritizing research priorities of Policy, Outreach, Communications, and Operations teams
+        * Creating and/or overseeing the creation of rigorous reproducible research reports and dashboards
+        * Communicating findings with internal and external consumers
         
-  - title: Professor
-    company: University X
+  - title: Director, Open Justice Oklahoma
+    company: Oklahoma Policy Institute
+    company_url: 'https://www.openjusticeok.org'
+    location: Oklahoma
+    date_start: '2018-07-01'
+    date_end: '2020-12-31'
+    description: Founded program based on previous work to collect, clean, and  court and jail data 
+  
+  - title: Criminal Justice Policy Analyst
+    company: Oklahoma Policy Institute
     company_url: ''
-    location: California
+    location: Oklahoma
     date_start: '2016-01-01'
-    date_end: '2016-12-31'
+    date_end: '2018-06-30'
     description: Taught electronic engineering and researched semiconductor physics.
 ---
