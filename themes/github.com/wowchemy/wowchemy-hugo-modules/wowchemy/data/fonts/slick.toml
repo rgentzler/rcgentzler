@@ -2,10 +2,10 @@
 name = "Slick"
 
 # Optional Google font URL
-google_fonts = "DM+Mono:400,700|Merriweather:400,700|Inconsolata"
+google_fonts = "DM+Mono:400,700|Merriweather:400,700|Inconsolata|Staatliches"
 
 # Font families
-heading_font = "Inconsolata"
+heading_font = "Staatliches"
 body_font = "Merriweather"
-nav_font = "Inconsolata"
+nav_font = "Staatliches"
 mono_font = "DM Mono"

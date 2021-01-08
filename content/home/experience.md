@@ -28,12 +28,7 @@ experience:
     location: Oklahoma
     date_start: '2021-01-01'
     date_end: ''
-    description: |2-
-        Responsibilities include:
-        
-        * Identifying and prioritizing research priorities of Policy, Outreach, Communications, and Operations teams
-        * Creating and/or overseeing the creation of rigorous reproducible research reports and dashboards
-        * Communicating findings with internal and external consumers
+    description: Create and oversee the creation of rigorous reproducible research reports and dashboards in support of OK Policy's policy and programmatic goals
         
   - title: Director, Open Justice Oklahoma
     company: Oklahoma Policy Institute
@@ -49,5 +44,5 @@ experience:
     location: Oklahoma
     date_start: '2016-01-01'
     date_end: '2018-06-30'
-    description: Taught electronic engineering and researched semiconductor physics.
+    description: Researched 
 ---
