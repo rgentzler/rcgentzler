@@ -28,7 +28,7 @@ experience:
     location: Oklahoma
     date_start: '2021-01-01'
     date_end: ''
-    description: Create and oversee the creation of rigorous reproducible research reports and dashboards in support of OK Policy's policy and programmatic goals
+    description: Oversee the creation of rigorous reproducible research reports and dashboards in support of OK Policy's policy and programmatic goals
         
   - title: Director, Open Justice Oklahoma
     company: Oklahoma Policy Institute
@@ -40,9 +40,9 @@ experience:
   
   - title: Criminal Justice Policy Analyst
     company: Oklahoma Policy Institute
-    company_url: ''
+    company_url: 'https://www.okpolicy.org'
     location: Oklahoma
     date_start: '2016-01-01'
     date_end: '2018-06-30'
-    description: Researched 
+    description: Researched criminal justice policy, tracked legislation, published blog posts and reports
 ---

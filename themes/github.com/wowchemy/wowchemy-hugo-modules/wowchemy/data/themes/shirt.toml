@@ -9,9 +9,9 @@ primary = "#707070"
 
 # Menu
 menu_primary = "#000000"
-menu_text = "#F4D35E"
-menu_text_active = "#F4D35E"
-menu_title = "#F4D35E"
+menu_text = "#FFFFFF"
+menu_text_active = "#FFFFFF"
+menu_title = "#FFFFFF"
 
 # Links
 link = "#BB342F"
