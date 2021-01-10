@@ -2,10 +2,10 @@
 name = "Slick"
 
 # Optional Google font URL
-google_fonts = "DM+Mono:400,700|Lato:400,700|Inconsolata|Sriracha|Recursive|Overpass+Mono|Inika|Mogra"
+google_fonts = "DM+Mono:400,700|Lato:400,700|Fira+Mono|Sriracha|Recursive:600|Overpass+Mono|Inika|Rye"
 
 # Font families
 heading_font = "Recursive"
 body_font = "Lato"
 nav_font = "Recursive"
-mono_font = "DM Mono"
+mono_font = "Fira Mono"

@@ -1,5 +1,5 @@
 ---
-title: Oklahoma Court Tracker
+title: Tracking evictions in Oklahoma during covid-19
 summary: A Shiny dashboard built for Open Justice Oklahoma to track eviction filings since the beginning of the covid-19 pandemic.
 tags:
 - Evictions

@@ -1,0 +1,11 @@
+# Font style metadata
+name = "Click"
+
+# Optional Google font URL
+google_fonts = "Averia+Serif+Libre|Lato|Fira+Mono|Podkova|Vollkorn:700"
+
+# Font families
+heading_font = "Vollkorn"
+body_font = "Lato"
+nav_font = "Vollkorn"
+mono_font = "Fira Mono"
