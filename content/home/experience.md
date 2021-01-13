@@ -36,7 +36,7 @@ experience:
     location: Oklahoma
     date_start: '2018-07-01'
     date_end: '2020-12-31'
-    description: Founded program based on previous work to collect, clean, and  court and jail data 
+    description: Founded program based on work as Policy Analyst to produce groundbreaking research by collecting and analyzing court and jail data 
   
   - title: Criminal Justice Policy Analyst
     company: Oklahoma Policy Institute

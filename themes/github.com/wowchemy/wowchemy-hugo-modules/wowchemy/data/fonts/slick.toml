@@ -2,7 +2,7 @@
 name = "Slick"
 
 # Optional Google font URL
-google_fonts = "Bebas+Neue|Staatliches|Lato:400,700|Fira+Mono|Passero+One"
+google_fonts = "Bebas+Neue|Staatliches|Lato:400,700|Fira+Mono:400,700|Passero+One"
 
 # Font families
 heading_font = "Fira Mono"
