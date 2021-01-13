@@ -8,19 +8,13 @@ superuser: true
 # Role/position/tagline
 role: Research Director
 
-# Organizations/Affiliations to show in About widget
-organizations:
-- name: Oklahoma Policy Institute
-  url: https://okpolicy.org/
-
 # Short bio (displayed in user profile at end of posts)
 bio: Ryan uses R to open the black box of Oklahoma's justice system.
 
 # Interests to show in About widget
 interests:
-- Interactive data visualization
-- Public interest dashboards
-- Criminal and civil justice metrics
+- Criminal and civil justice
+- Dashboards
 
 # Education to show in About widget
 education:

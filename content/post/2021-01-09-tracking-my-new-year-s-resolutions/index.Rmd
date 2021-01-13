@@ -1,0 +1,273 @@
+---
+title: Tracking my new year's resolutions
+author: Ryan Gentzler
+date: '2021-01-09'
+slug: tracking-my-new-year-s-resolutions
+categories: ['R']
+tags: []
+subtitle: ''
+summary: ''
+authors: []
+lastmod: '2021-01-09T21:31:05-06:00'
+featured: no
+image:
+  caption: ''
+  focal_point: ''
+  preview_only: no
+projects: []
+editor_options: 
+  chunk_output_type: console
+---
+```{r setup, include=FALSE}
+library(tidyverse)
+library(nationalparkcolors)
+library(lubridate)
+library(plotly)
+
+d <- read_rds("data2020.rds")
+
+write_rds(d, "data2020.rds")
+
+palette_df <- tibble(theme_name = c("ArcticGates",
+                                    "Everglades",
+                                    "Yellowstone", 
+                                    "RockyMountains"),
+                     bg = c(1, 
+                            1,
+                            3,
+                            5),
+                     trace = c(list(c(6, 2:5)),
+                               list(c(2:5, 2)),
+                               list(c(2:1, 4:6)),
+                               list(c(1:4, 1))),
+                     plot_title = c(6,
+                                    2,
+                                    6,
+                                    2),
+                     header = c(2,
+                                2,
+                                6,
+                                2),
+                     header_font = c(1,
+                                     4,
+                                     1,
+                                     5))
+
+x <- sample(c(1, 3:4), 1)
+
+theme_name <- case_when(x == 1 ~ "RockyMountains",
+                        x == 2 ~ "Yellowstone",
+                        x == 3 ~ "Everglades",
+                        TRUE ~ "ArcticGates")
+
+font <- "Futura"
+
+time_frame <- tibble(week = seq.Date(ymd("2019-12-29"), ymd("2020-12-31"), by = 7),
+                     type = "Run")
+
+if (theme_name %in% names(park_palettes)) {
+      park <- theme_name
+      
+      bg_color <- park_palette(park)[palette_df[palette_df$theme_name == park, "bg"] %>% 
+                                           as.numeric]
+      trace_colors <- park_palette(park)[palette_df[palette_df$theme_name == park, "trace"] %>% 
+                                               unlist %>% 
+                                               as.numeric]
+      plot_title_color <- park_palette(park)[palette_df[palette_df$theme_name == park, "plot_title"] %>% 
+                                                   as.numeric]
+      
+      header_color <- park_palette(park)[palette_df[palette_df$theme_name == park, "header"] %>% 
+                                               as.numeric]
+      header_font_color <- park_palette(park)[palette_df[palette_df$theme_name == park, "header_font"] %>% 
+                                                    as.numeric]
+}
+
+
+theme_np <- function() {
+      theme_minimal() +
+            theme(legend.position = "none",
+                  text = element_text(face = "bold", family = font),
+                  plot.title = element_text(color = plot_title_color,
+                                            hjust = 0.5, size = 12),
+                  plot.subtitle = element_text(color = header_color,
+                                               hjust = 0.5, size = 12),
+                  axis.text = element_text(size = 12, 
+                                           color = plot_title_color),
+                  axis.title = element_blank(),
+                  panel.grid.major = element_blank(),
+                  panel.grid.minor = element_blank(),
+                  panel.background = element_rect(fill = bg_color,
+                                                  color = bg_color), 
+                  plot.background = element_rect(fill = bg_color,
+                                                 color = bg_color))
+}
+```
+
+I can't count the number of times I've set a goal to run 1,000 miles in a year. As an avid runner since high school, it felt achievable - less than 3 miles a day - and I usually lasted through January or mid-February, not running every day but consistently enough to remain roughly on track. I used [Running Ahead](http://www.runningahead.com/){target="_blank"} during my most serious training phases, which gave me a daily average to hit, simply dividing the number of miles to go by the days left in the year.
+
+Without fail, I'd hit a wall at some point, miss a week or two of running, get some aches that would require some rest, and fall behind enough to forget or give up.
+
+As 2020 approached, I wanted to try gain, but also give myself shorter-term, achievable goals to keep motivated. I came up with some other goals, too - to ride my bike 2,000 miles, to read 5,000 pages, and to keep the time looking at my phone below 2 hours per day.
+
+Having built a few dashboards for [Open Justice Oklahoma](https://openjustice.okpolicy.org){target="_blank"}, I decided to build myself something to track these goals in a way that would help me maintain my motivation. The result is [this dashboard](https://rcgentzler.shinyapps.io/rybo2020/){target="_blank"} built with the incredibly handy [flexdashboard](https://rmarkdown.rstudio.com/flexdashboard/){target="_blank"} package.
+
+## Getting the data
+
+tl;dr I set up my dashboard to pull in running and cycling data from Strava using the [rStrava](https://github.com/fawda123/rStrava) package and reading and phone time entries from a Google Form. Getting the authentication to have the Shiny server talk to Google was the most challenging/frustrating part. If you're hoping to do something similar, I would recommend being very patient and persistent in getting one of the [methods described by Mark Edmondson](https://cran.r-project.org/web/packages/googleAuthR/vignettes/google-authentication-types.html){target="_blank"} to work for you.
+
+The data was wrangled into tidy format to look like this:
+
+```{r}
+d
+```
+
+## Weekly goals with `geom_tile()`
+
+To reach my annual goals, I set weekly goals to run 20 miles each week, cycle 40 miles, and read 100 pages worth of book. Hitting all of these every single week would put me well over my annual goals, but I knew that wasn't going to happen so it gave me a bit of wiggle room. 
+
+I needed a way to visualize my four goals each week and see the results in a not-overwhelmingly-busy way. I settled on using ggplot's `geom_tile()` to represent each week over the course of the year, so four tiles for each week. The opacity of each tile is determined by the progress of that week - a fully opaque tile if I met my goal, fully transparent if I didn't make any progress at all.
+
+The end result looks like this: 
+
+```{r}
+ggplotly( # Enables hover details with the plot_ly package
+      # The plot
+      ggplot(d, aes(week, type, 
+                    fill = type, 
+                    color = type, 
+                    alpha = pct_goal, # Determines the opacity of the tile 
+                    text = value)) +
+            geom_tile() +
+            # The cosmetic stuff
+            scale_x_date(breaks = c(ymd("2020-01-01"),
+                                    ymd("2020-04-01"),
+                                    ymd("2020-07-01"),
+                                    ymd("2020-10-01")),
+                         date_labels = "%B") +
+            labs(title = str_to_upper("Weekly Results")) +
+            scale_fill_manual(values = trace_colors) +
+            scale_color_manual(values = trace_colors) +
+            theme_np() +
+            theme(plot.title = element_text(size = 16)),
+      tooltip = c("value", "pct_goal")
+) %>%
+      # Plotly commands to get rid of the toolbar and disallow changing the axes
+      config(displayModeBar = F) %>%
+      layout(xaxis=list(fixedrange=TRUE)) %>%
+      layout(yaxis=list(fixedrange=TRUE))
+```
+
+For some reason, having rarely used `geom_tile()` before, it was the first idea that came to mind, and I'm very pleased with the story it tells. You can see the points at which I was consistent with my running (spring through mid-summer, late fall/winter), the periods where I was just hanging on (the chokingly humid Oklahoma late summer), and the one week I was on a road trip and didn't run at all. You can also see how I hit my cycling goal quite consistently, then abruptly stopped in September (I took a spill on my bike and sprained my wrist, and it took a long time to heal fully).
+
+## Yearly and weekly progress with `geom_bar()`
+
+In addition to the week-by-week goals, I set up simple bar charts to track how many pages I'd read and miles I'd run and cycled.
+
+```{r message=FALSE}
+# This is how I got the current week. Not sure why I used Sys.time() instead of Sys.Date() here!
+# current_week <- floor_date(Sys.time(), "week") %>% 
+#   str_sub(1, 10) %>% 
+#   ymd
+
+current_week <- floor_date(ymd("2020-07-10"), "week")
+
+thisweek <- d %>%
+      filter(type %in% c("Run", "Ride", "Read"),
+             week == current_week) %>%
+      bind_rows(tibble(week = current_week,
+                       type = c("Run", "Read", "Ride"),
+                       value = 0)) %>% 
+      group_by(week, type) %>% 
+      summarize(value = sum(value, na.rm = TRUE)) %>% 
+      mutate(goal = case_when(type == "Run" ~ 20,
+                              type == "Read" ~ 100,
+                              type == "Ride" ~ 40),
+             goal_unit = case_when(type == "Run" ~ "miles",
+                                   type == "Read" ~ "pages",
+                                   type == "Ride" ~ "miles"),
+             pct_done = ifelse(value/goal < 1,
+                               value/goal,
+                               1)) %>% 
+      ungroup %>% 
+      mutate(type = type %>% 
+                   fct_relevel(c("Read", "Ride", "Run")))
+
+ggplotly(
+      ggplot(thisweek, aes(type, pct_done, fill = type)) +
+            geom_bar(stat = "identity") +
+            geom_text(aes(y = pct_done + .13, 
+                          label = ifelse(pct_done == 1,
+                                         paste("Done.\n", value, goal_unit),
+                                         paste(goal - round(value, 1), goal_unit, "\nto go"))),
+                      hjust = -1, 
+                      size = 3,
+                      color = plot_title_color) +
+            ylim(0, 1.2) +
+            geom_hline(aes(yintercept = 1), linetype = "dotted", color = plot_title_color) +
+            coord_flip() +
+            theme_np() +
+            theme(axis.text.x = element_blank()) +
+            labs(title = "THIS WEEK'S PROGRESS") +
+            scale_fill_manual(values = trace_colors[2:5])
+) %>% 
+      config(displayModeBar = F) %>% 
+      layout(xaxis=list(fixedrange=TRUE)) %>% 
+      layout(yaxis=list(fixedrange=TRUE))
+
+```
+
+## Gauging if I'm on-pace with `geom_step()`
+
+To bridge the gap between weekly and annual goals, Page 2 of my dashboard uses a step plot to show how the weeks are totaling up to keep me on pace for my annual goals. The dotted horizontal line shows where I need to be in the current week to hit my annual goal; the solid line shows the annual goal.
+
+I turned the whole plot into a function to take the activity and annual goals as arguments to avoid repeating all of this three times.
+
+```{r}
+progress <- d %>%
+      filter(week < ymd("2020-09-01")) %>% # Adding this to show progress on 
+                                           # reading as of September
+      group_by(type) %>% 
+      mutate(ytd = cumsum(value))
+
+progress_plot <- function(activity, annual_goal) {
+      pace <- n_distinct(progress$week)/52*annual_goal
+      pace_diff <- round(max(progress[progress$type == activity, "ytd"]) - pace, digits = 0)
+      pace_word <- ifelse(pace_diff > 0, "ahead of", "behind")
+      subtitle_text <- paste(abs(pace_diff), 
+                             ifelse(activity == "Read", "pages", "miles"),
+                             pace_word, 
+                             "pace")
+      
+      ggplotly(
+            ggplot(progress %>% 
+                         filter(type == activity), aes(week, ytd)) +
+                  geom_step(color = trace_colors[[1]], size = 1.5) +
+                  geom_hline(aes(yintercept = annual_goal), color = plot_title_color) +
+                  geom_hline(aes(yintercept = pace), 
+                             color = trace_colors[[1]],
+                             linetype = "dotted") +
+                  scale_x_date(breaks = c(ymd("2020-01-01"),
+                                          ymd("2020-04-01"),
+                                          ymd("2020-07-01"),
+                                          ymd("2020-10-01")),
+                               date_labels = "%B",
+                               limits = c(ymd("2019-12-29"), ymd("2020-12-31"))) +
+                  ylim(0, annual_goal) +
+                  theme_np() +
+                  labs(title = paste(str_to_upper(activity), "<br>",
+                                     subtitle_text)) +
+                  NULL
+      ) %>% 
+            config(displayModeBar = F) %>% 
+            layout(xaxis=list(fixedrange=TRUE)) %>% 
+            layout(yaxis=list(fixedrange=TRUE))
+}
+
+progress_plot("Read", 5000)
+```
+
+## It worked like gangbusters
+
+The combination of weekly and annual goals worked perfectly. At the beginning of each week, I'd be motivated to fill in each tile, but if I had a rough week I just started over the next. I ended up juuuuust hitting my annual running goal in the last week of the year with *exactly  1,000 miles* (first time hitting four digits!), far exceeded my reading goal, and came in averaging 1 hour 55 minutes looking at my phone each day. Cycling goal hit a hard wall, but can't win 'em all.
+
+It worked so well, I replicated it for this year with some modifications. More on that in future posts! Probably!

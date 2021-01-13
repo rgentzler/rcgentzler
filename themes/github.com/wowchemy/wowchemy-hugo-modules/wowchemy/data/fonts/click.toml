@@ -2,10 +2,10 @@
 name = "Click"
 
 # Optional Google font URL
-google_fonts = "Averia+Serif+Libre|Lato|Fira+Mono|Podkova|Vollkorn:700"
+google_fonts = "Bigshot+One|Lato|Fira+Mono|Podkova|Vollkorn:700|Rye|Bebas+Neue"
 
 # Font families
 heading_font = "Vollkorn"
 body_font = "Lato"
-nav_font = "Vollkorn"
+nav_font = "Share Tech Mono"
 mono_font = "Fira Mono"
