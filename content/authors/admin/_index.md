@@ -57,6 +57,6 @@ highlight_name: false
 
 I'm the Research Director at the [Oklahoma Policy Institute](https://www.okpolicy.org), overseeing the organization's work to leverage data in support of our policy and programmatic goals. Previously with OK Policy, I served as the Director of [Open Justice Oklahoma](https://openjustice.okpolicy.org/) and as Criminal Justice Policy Analyst.
 
-Over the last five years, I've built tools to collect various public data sets, a database to store them, and various interactive data visualizations to communicate our findings. I love using R to uncover patterns in messy administrative data, revealing things that confirm and - even better - challenge our ideas about how the world works.
+Over the last five years, I've built tools to collect novel court, jail, and DOC public data sets; a database to store them; and various interactive data visualizations to communicate our findings. I love using R to uncover patterns in messy administrative data, revealing things that confirm and - even better - challenge our ideas about how the world works.
 
-{{< icon name="download" pack="fas" >}} Download my {{< staticref "media/demo_resume.pdf" "newtab" >}}resumé{{< /staticref >}}.
+{{< icon name="download" pack="fas" >}} Download my {{< staticref "media/gentzler-resume.pdf" "newtab" >}}resumé{{< /staticref >}}.
