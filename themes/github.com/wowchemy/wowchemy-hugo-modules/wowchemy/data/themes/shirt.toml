@@ -16,7 +16,7 @@ menu_title = "#01b7fe"
 # Links
 link = "#8A2648"
 link_hover = "#000"
-link_decoration = "underline"
+link_decoration = "bold"
 
 # Home sections
 home_section_odd = "#f9f7f6"
