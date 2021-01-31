@@ -4,6 +4,7 @@ summary: A Shiny dashboard built for Open Justice Oklahoma to track eviction fil
 tags:
 - Evictions
 - Dashboard
+- OJO
 date: "2016-04-27T00:00:00Z"
 
 # Optional external URL for project (replaces project detail page).

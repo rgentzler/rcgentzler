@@ -27,10 +27,10 @@ content:
   filter_button:
   - name: All
     tag: '*'
-  - name: Dashboard
-    tag: Dashboard
-  - name: Other
-    tag: Demo
+  - name: OJO
+    tag: OJO
+  - name: Personal
+    tag: Personal
 
 design:
   # Choose how many columns the section has. Valid values: '1' or '2'.
