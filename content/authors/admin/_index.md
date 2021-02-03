@@ -55,6 +55,8 @@ email: ""
 highlight_name: false
 ---
 
+Welcome to my personal site!
+
 I'm the Research Director at the [Oklahoma Policy Institute](https://www.okpolicy.org), overseeing the organization's work to leverage data in support of our policy and programmatic goals. Previously with OK Policy, I served as the Director of [Open Justice Oklahoma](https://openjustice.okpolicy.org/) and as Criminal Justice Policy Analyst.
 
 Over the last five years, I've built tools to create and update novel court, jail, and prison data sets; a giant database to store them; and interactive data visualizations to communicate our findings. I love using R to uncover patterns in messy administrative data, revealing things that confirm or - even better - challenge our ideas about how the world works.
