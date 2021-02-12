@@ -1,5 +1,5 @@
 # Theme metadata
-name = "Earth"
+name = "Shirt"
 
 # Is theme light or dark?
 is_light = true
@@ -14,9 +14,9 @@ menu_text_active = "#01b7fe"
 menu_title = "#01b7fe"
 
 # Links
-link = "#8A2648"
+link = "#800000"
 link_hover = "#000"
-link_decoration = "bold"
+link_decoration = "underline solid #01b7fe"
 
 # Home sections
 home_section_odd = "#f9f7f6"
