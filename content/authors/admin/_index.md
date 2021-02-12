@@ -6,7 +6,7 @@ title: Ryan Gentzler
 superuser: true
 
 # Role/position/tagline
-role: Research Director
+role: R for justice transparency
 
 # Short bio (displayed in user profile at end of posts)
 bio: Ryan uses R to open the black box of Oklahoma's justice system.
