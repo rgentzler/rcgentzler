@@ -21,13 +21,23 @@ date_format: Jan 2006
 #   Required fields are `title`, `company`, and `date_start`.
 #   Leave `date_end` empty if it's your current employer.
 #   Begin multi-line descriptions with YAML's `|2-` multi-line prefix.
+
+experience:
+  - title: Data Innovations Director
+    company: Fair and Just Prosecution
+    company_url: 'https://www.fairandjustprosecution.org'
+    location: ''
+    date_start: '2022-11-01'
+    date_end: ''
+    description: Support the data and research activities of reform-minded elected prosecutors across the country
+    
 experience:
   - title: Research Director
     company: Oklahoma Policy Institute
     company_url: 'https://www.okpolicy.org'
     location: Oklahoma
     date_start: '2021-01-01'
-    date_end: ''
+    date_end: '2022-11-16'
     description: Oversee the creation of rigorous reproducible research reports and dashboards in support of OK Policy's policy and programmatic goals
         
   - title: Director, Open Justice Oklahoma

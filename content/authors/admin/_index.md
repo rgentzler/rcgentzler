@@ -9,12 +9,7 @@ superuser: true
 role: R for justice transparency
 
 # Short bio (displayed in user profile at end of posts)
-bio: Ryan uses R to open the black box of Oklahoma's justice system.
-
-# Interests to show in About widget
-interests:
-- Criminal and civil justice
-- Data visualization
+bio: Ryan uses R to open the black box of the criminal and civil legal system.
 
 # Education to show in About widget
 education:
@@ -55,10 +50,8 @@ email: ""
 highlight_name: false
 ---
 
-Welcome to my personal site!
+My work aims to build a fairer, more effective legal system by fusing a people-centered approach to justice with the power of data and research. At the [Oklahoma Policy Institute](https://www.okpolicy.org), I started [Open Justice Oklahoma](https://openjustice.okpolicy.org/), a program that collects, analyzes, and communicates data on the state's courts, jails, and prisons. I'm currently Data Innovations Director at [Fair and Just Prosecution](https://www.fairandjustprosecution.org), working with reform-minded prosecutors' offices around the country to tell their stories and measure their impact.
 
-I'm the Research Director at the [Oklahoma Policy Institute](https://www.okpolicy.org), overseeing the organization's work to leverage data in support of our policy and programmatic goals. Previously with OK Policy, I served as the Director of [Open Justice Oklahoma](https://openjustice.okpolicy.org/) and as Criminal Justice Policy Analyst.
-
-Over the last five years, I've built tools to create and update novel court, jail, and prison data sets; a giant database to store them; and interactive data visualizations to communicate our findings. I love using R to uncover patterns in messy administrative data, revealing things that confirm or - even better - challenge our ideas about how the world works.
+I love using R to uncover patterns in messy administrative data, revealing things that challenge our ideas about how the world works.
 
 {{< icon name="download" pack="fas" >}} Download my {{< staticref "media/gentzler-resume.pdf" "newtab" >}}resumé{{< /staticref >}}.
