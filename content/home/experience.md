@@ -31,7 +31,6 @@ experience:
     date_end: ''
     description: Support the data and research activities of reform-minded elected prosecutors across the country
     
-experience:
   - title: Research Director
     company: Oklahoma Policy Institute
     company_url: 'https://www.okpolicy.org'
